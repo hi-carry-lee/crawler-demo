@@ -3,13 +3,14 @@ package com.example.crawler.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
+
 
 @Entity
 @Table(name = "article")
 public class Article {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -18,38 +19,38 @@ public class Article {
     /**
      * 文章标题
      */
-    @Column(name="title")
-    private String title;
+    @Column(name="headline")
+    private String headline;
 
     /**
      * 文章作者
      */
     @Column(name="author")
-    private float author;
+    private String author;
 
     /**
      * 文章发表时间
      */
-    @Column(name="post_date")
-    private String postDate;
+    @Column(name="date")
+    private LocalDateTime date;
 
     /**
-     * 文章内容
+     * 文章摘要
      */
-    @Column(name="content")
-    private String content;
+    @Column(name="intro")
+    private String intro;
 
     /**
      * 创建时间
      */
     @Column(name="created")
-    private Date created;
+    private LocalDateTime created;
 
     /**
      * 修改时间
      */
     @Column(name="updated")
-    private Date updated;
+    private LocalDateTime updated;
 
     /**
      * 文章包含的段落
@@ -66,51 +67,51 @@ public class Article {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getHeadline() {
+        return headline;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setHeadline(String headline) {
+        this.headline = headline;
     }
 
-    public float getAuthor() {
+    public String getIntro() {
+        return intro;
+    }
+
+    public void setIntro(String intro) {
+        this.intro = intro;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
+
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(float author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
-    public String getPostDate() {
-        return postDate;
-    }
-
-    public void setPostDate(String postDate) {
-        this.postDate = postDate;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public Date getCreated() {
+    public LocalDateTime getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(LocalDateTime created) {
         this.created = created;
     }
 
-    public Date getUpdated() {
+    public LocalDateTime getUpdated() {
         return updated;
     }
 
-    public void setUpdated(Date updated) {
+    public void setUpdated(LocalDateTime updated) {
         this.updated = updated;
     }
 }
